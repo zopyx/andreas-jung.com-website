@@ -1,3 +1,3 @@
 export function onRequest(context) {
-    return Response.redirect(context.params.input);
+    return Response.redirect("https://heise.de/?foo=" + context.params.input);
 }
