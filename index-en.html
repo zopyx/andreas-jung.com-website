@@ -1,426 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Andreas Jung - Python software developer and software architect</title>
-    
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andreas Jung - Python Software Developer and Software Architect</title>
     <meta name="description" content="Andreas Jung, Python Software Development, Software Architect, Plone Solution Provider">
-    <meta name="author" content="Andreas Jung">    
-    <link rel="shortcut icon" href="favicon.ico">  
-    <!-- Google Font -->
+    <meta name="author" content="Andreas Jung">
+    <link rel="shortcut icon" href="favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="fonts.css">
-    <!-- FontAwesome JS-->
-	<script defer src="assets/fontawesome/js/all.min.js"></script>
-    <!-- Global CSS -->
-    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">   
-    <!-- Theme CSS -->  
-    <link id="theme-style" rel="stylesheet" href="assets/css/orbit-1.css">
-</head> 
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#14b8a6', // Teal-500
+                        'primary-focus': '#0d9488', // Teal-600
+                        'dark-bg': '#1f2937', // Gray-800
+                        'dark-card': '#374151', // Gray-700
+                        'dark-text': '#d1d5db', // Gray-300
+                        'dark-heading': '#f9fafb', // Gray-50
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark-bg text-dark-text">
 
-<body>
-    <div class="wrapper mt-lg-5">
-        <div class="sidebar-wrapper">
-            <div class="profile-container">
-                <img class="profile" src="assets/images/profile.png" alt="" />
-                <h1 class="name">Andreas Jung</h1>
-                <h3 class="tagline">Python developer<br/>Software Architect<br/>Publishing Consultant<br/>Plone Solution Provider<br/>Python Tutor/Mentor</h3>
-            </div><!--//profile-container-->
-            
-            <div class="contact-container container-block">
-                <ul class="list-unstyled contact-list">
-                    <li class="email"><i class="fa-solid fa-envelope"></i><a href="mailto: info@zopyx.com">info@zopyx.com</a></li>
-                    <li class="phone"><i class="fa-solid fa-phone"></i><a href="tel:00497071793376">(+49) 7071 793376</a></li>
-                    <li class="website"><i class="fa-solid fa-globe"></i><a href="https://www.zopyx.com" target="_blank">www.zopyx.com</a></li>
-                    <li class="linkedin"><i class="fa-brands fa-linkedin-in"></i><a href="https://www.linkedin.com/in/jungandreas" target="_blank">jungandreas</a></li>
-                    <li class="github"><i class="fa-brands fa-github"></i><a href="https://github.com/zopyx" target="_blank">github.com/zopyx</a></li>
-                    <li class="twitter"><i class="fa-brands fa-x-twitter"></i><a href="https://x.com/_andreas_jung" target="_blank">@_andreas_jung</a></li>
-                </ul>
-            </div><!--//contact-container-->
-            <div class="education-container container-block">
-                <h2 class="container-block-title">Study</h2>
-                <div class="item">
-                    <h4 class="degree">Diplom-Informatiker (MSc Computer Science)</h4>
-                    <h5 class="meta">Saarland University</h5>
-	                    <div class="time">1989-1995</div>
-                </div><!--//item-->
-            </div><!--//education-container-->
-            
-            <div class="languages-container container-block">
-                <h2 class="container-block-title">Languages</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>German <span class="lang-desc">(Native language)</span></li>
-                    <li>English <span class="lang-desc">(fluent)</span></li>
-                </ul>
-            </div><!--//interests-->
-            
-            <div class="interests-container container-block">
-                <h2 class="container-block-title">Interests</h2>
-                <ul class="list-unstyled interests-list">
-                    <li>Classical music</li>
-                    <li>Choral music</li>
-                    <li>Diving</li>
-                </ul>
-            </div><!--//interests-->
+    <div class="container mx-auto p-4 md:p-8 lg:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-            <div class="contact-container container-block">
-                <h2 class="container-block-title">Address</h2>
-                <ul class="list-unstyled contacts-list">
-                    <li>Andreas Jung</li>
-                    <li>Hundskapfklinge 33</li>
-                    <li>D-72074 Tübingen</li>
-                </ul>
-            </div><!--//interests-->
-            
-        </div><!--//sidebar-wrapper-->
-        
-        <div class="main-wrapper">
-            
-            <section class="section summary-section">
-                <a href="index.html">DE</a> | 
-                <a href="index-en.html">EN</a>
-            </section>
-
-            <section class="section summary-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-user"></i></span>Profile</h2>
-                <div class="summary">
-                    <p>
-                    I am a Python Professional with more than 25 years of professional experience in software development (focus on Python). My main focus is backend development, software and enterprise architecture, Python tutor and mentor as well as requirements management and project management. In the area of content management systems and electronic publishing, I have extensive experience in publishing, XML and PDF. 
-                    </p>
-                    <p>
-                    I am always interested in new projects in exciting subject areas where I can use my expertise as a developer and architect to achieve added value for my clients. 
-                    </p>
-                    <p>During my many years of development work, I have worked in a wide variety of industries: publishing, industry, energy, medicine and pharmaceuticals. One of my main skills is to quickly familiarize myself with complex and non-specialist topics, to analyze the requirements and to develop a sustainable software and enterprise architecture from them.</p>
-                    <p>My current focus is on the planning and implementation of green-field projects.  I see myself as a backend developer and architect, but not as a DevOp. Nevertheless, I also have experience in the areas of frontend, network, cloud &amp; Deployment have extensive, up-to-date expertise in order to be able to have a say in all aspects of projects. The implementation of cloud topics or front-end development generally takes place in cooperation with the corresponding experts from the respective fields.
-                    </p>
-                    <p>My CV:
-                        <a href="assets/pdf/CV-Andreas-Jung-DE.pdf">[German]</a> 
-                        <a href="assets/pdf/CV-Andreas-Jung-EN.pdf">[English]</a>
-                    </p>
-
-                </div><!--//summary-->
-            </section><!--//section-->
-            
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>My Portfolio</h2>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Software development</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p>
-                            With more than 25 years of experience in software development
-                            with Python, I have extensive expertise in backend development, web applications, REST microservices, database-based applications as well as experience in the field of data science, big data, AI and machine learning.
-                        </p>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Software architecture and requirements management</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <p> Based on my many years of experience, I analyze the requirements of my customers (also from non-specialist areas) and design resilient software architectures based on them. Both technical requirements and developer experience (Python "best practice", developer-first approach) are incorporated. 
-                        </p>
-                        <p>
-                        My software solutions are primarily oriented towards developer experience in order to provide developers with an optimal working environment. As an additional benefit, my software solutions can be deployed in different scenarios (on-premise, cloud). The architecture of my software is based primarily on common software design principles rather than being constrained by the target architecture.
-                        </p>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Software-Solutions</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li><b>Content management solutions based on the CMS Plone</b>
-                                <p>
-                                As a service provider, I have been implementing CMS solutions since 2001 based on the Python-based CMS <a href="https://plone.org">Plone</a>. Our reference project is the Guidelines Platform <a href="https://www.onkopedia.com/">Onkopedia</a>.
-                                </p>
-                            </li>
-                            <li><b>Individual Python software development</b>
-                                <p>On behalf of our customers, I implement individual software solutions in all possible business domains. Among other things, I have implemented solutions for the recording of gas consumption at large gas customers, worked on laboratory software and taken over numerous existing projects from customers as part of a software maintenance.
-                                </p>
-                            </li>
-                            <li><b>Electronic Publishing Solutions</b>
-                                <p>
-                                Due to my original work in the publishing industry (Saarbrücker Zeitung, Haufe-Lexware Verlag, Office for Publications of the EU), I have a high affinity for publishing topics. The focus here is on CMS-based XML publishing solutions with so-called <i>Single-Source Multi-Channel</i> Approach.
-                                Another focus is the creation of high quality PDF documents from HTML/XML.
-                                with the help of CSS (PrintCSS approach aka <i>CSS Paged Media</i>).
-                                </p>
-                            </li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-                
-            </section><!--//section-->
-
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-briefcase"></i></span>Technologies</h2>
-                
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Python (All versions)</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>All common Web-Frameworks</li>
-                            <li>FastAPI, Pydantic</li>
-                            <li>SQLAlchemy and other ORMs</li>
-                            <li>Pandas, Numpy</li>
-                            <li>Tools: pytest, coverage, flake8, etc.</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Content management (CMS)</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Zope application server</li>
-                            <li>Alfresco</li>
-                            <li>Wordpress</li>
-                            <li>Plone</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Electronic Publishing</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>XML, XSLT, HTML</li>
-                            <li>XML Databases: BaseX, existDB, Marklogic</li>
-                            <li>PDF Generation via CSS Paged Media (PrintCSS)</li>
-                            <li>Full-text search: Solr, Elasticsearch, Typesense</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Databases</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Relational Databases: Oracle, Postgres, MySQL</li>
-                            <li>NoSQL Databases: ArangoDB, Cassandra, InfluxDB, among others</li>
-                            <li>Cloud Databases: AWS RDS, DynamoDB, among others</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Tools</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Jenkins, Github, Gitlab, Jira, Confluence, Teams, Office 365, among others.</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-                <div class="item">
-                    <div class="meta">
-                        <div class="upper-row">
-                            <h3 class="job-title">Methodologies</h3>
-                        </div><!--//upper-row-->
-                    </div><!--//meta-->
-                    <div class="details">
-                        <ul>
-                            <li>Kanban</li>
-                            <li>Scrum</li>
-                            <li>Agile development</li>
-                            <li>Extreme Programming (XP)</li>
-                        </ul>
-                    </div><!--//details-->
-                </div><!--//item-->
-
-            </section><!--//section-->
-
-            <section class="section experiences-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Clients (Excerpt)</h2>
-                <div class="item">
-                    <h3 class="job-title">Sonnen Ltd.</h3> 
-                    <div class="details"> Python
-                    Development and software architecture of a new
-                    Billing platform, requirements management
+            <!-- Left Column -->
+            <div class="lg:col-span-4 xl:col-span-3">
+                <div class="bg-dark-card p-6 rounded-2xl shadow-lg sticky top-8">
+                    <div class="text-center">
+                        <img class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-primary" src="assets/images/profile.png" alt="Profile Picture">
+                        <h1 class="text-3xl font-bold text-dark-heading">Andreas Jung</h1>
+                        <p class="text-xl text-primary mt-2">Python Developer & Architect</p>
                     </div>
-                </div><!--//item-->
-                <div class="item">
-                    <h3 class="job-title">E.ON Energy</h3> 
-                    <div class="details"> Python development and requirements management in the field of pricing
-                    </div>
-                </div><!--//item-->
-                <div class="item">
-                    <h3 class="job-title">EWE Energy Trading</h3> 
-                    <div class="details"> Python development in the field of pricing </div>
-                </div><!--//item-->
-                <div class="item">
-                    <h3 class="job-title">University environment</h3> 
-                    <div class="details"> Saarland University, Marburg University, Humboldt University</div>
-                </div><!--//item-->
-                <div class="item">
-                    <h3 class="job-title">Medicine &amp; Pharma</h3> 
-                    <div class="details"> German Society for Haematology and Medical Oncology Inc.</div>
-                </div><!--//item-->
-                <div class="item">
-                    <h3 class="job-title">Industry</h3> 
-                    <div class="details"> Dynamore GmbH, Arculus GmbH</div>
-                </div><!--//item-->
-                <div class="item">
-                    <h3 class="job-title">Other customers</h3> 
-                    <div class="details"> Deutsche Telekom, T-Systems
-                    </div>
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="section projects-section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-archive"></i></span>Projects</h2>
-                <div class="intro">
-                </div><!--//intro-->
-                <div class="item">
-                    <span class="project-title"><a href="https://zopyx.com"
-                            target="_blank">zopyx.com</a></span> - <span
-                        class="project-tagline">My official website</span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://print-css.rocks"
-                            target="_blank">print-css.rocks</a></span> - <span
-                        class="project-tagline">PrintCSS technology for generating high-quality PDF documents from HTML/XML and CSS</span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://print-css.de"
-                            target="_blank">print-css.de</a></span> - <span
-                        class="project-tagline">My PrintCSS/PDF Portfolio</span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://xml-director.info"
-                            target="_blank">XML-Director</a></span> - <span
-                        class="project-tagline">A framework for the realisation of electronic publishing applications based on the CMS Plone and XML technology</span>
-                    
-                </div><!--//item-->
-                <div class="item">
-                    <span class="project-title"><a href="https://www.produce-and-publish.com/xmldirector-frontpage"
-                            target="_blank">Produce & Publish </a></span> - <span
-                        class="project-tagline">A collection of technologies and tools from the field of electronic publishing</span>
-                    
-                </div><!--//item-->
-            </section><!--//section-->
-            
-            <section class="skills-section section">
-                <h2 class="section-title"><span class="icon-holder"><i class="fa-solid fa-rocket"></i></span>Skills &amp; Experience</h2>
-                <div class="skillset">        
-                    <div class="item">
-                        <h3 class="level-title">Python,<br/> Backend-Development </h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="level-title">Software Architect, <br>Requirements management</br></h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="level-title">Project management</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 99%" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                               
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Relational databases</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
 
-                    <div class="item">
-                        <h3 class="level-title">NoSQL databases</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                              
-                    </div><!--//item-->
-                    
-                    <div class="item">
-                        <h3 class="level-title">Plone CMS</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
+                    <div class="mt-8">
+                        <h2 class="text-xl font-bold text-dark-heading border-b-2 border-primary pb-2 mb-4">Contact</h2>
+                        <ul class="space-y-3">
+                            <li class="flex items-center"><i class="fas fa-envelope text-primary w-6"></i><a href="mailto:info@zopyx.com" class="hover:text-primary">info@zopyx.com</a></li>
+                            <li class="flex items-center"><i class="fas fa-phone text-primary w-6"></i><a href="tel:+491711276280" class="hover:text-primary">+49 171 1276280</a></li>
+                            <li class="flex items-center"><i class="fas fa-globe text-primary w-6"></i><a href="https://www.andreas-jung.com" target="_blank" class="hover:text-primary">andreas-jung.com</a></li>
+                            <li class="flex items-center"><i class="fab fa-github text-primary w-6"></i><a href="https://github.com/zopyx" target="_blank" class="hover:text-primary">github.com/zopyx</a></li>
+                            <li class="flex items-center"><i class="fab fa-linkedin-in text-primary w-6"></i><a href="https://www.linkedin.com/in/jungandreas" target="_blank" class="hover:text-primary">linkedin.com/in/jungandreas</a></li>
+                            <li class="flex items-center"><i class="fa-brands fa-x-twitter text-primary w-6"></i><a href="https://x.com/_andreas_jung" target="_blank" class="hover:text-primary">@_andreas_jung</a></li>
+                        </ul>
+                    </div>
 
-                    <div class="item">
-                        <h3 class="level-title">Electronic Publishing<br/>(CMS, XML, PDF)</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
-                    <div class="item">
-                        <h3 class="level-title">Cloud (AWS, Azure)</h3>
-                        <div class="progress level-bar">
-						    <div class="progress-bar theme-progress-bar" role="progressbar" style="width: 60%" aria-valuenow="" aria-valuemin="0" aria-valuemax="100"></div>
-						</div>                                 
-                    </div><!--//item-->
+                    <div class="mt-8">
+                        <h2 class="text-xl font-bold text-dark-heading border-b-2 border-primary pb-2 mb-4">Core Skills</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-primary/20 text-primary text-sm font-semibold px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-primary/20 text-primary text-sm font-semibold px-3 py-1 rounded-full">Backend</span>
+                            <span class="bg-primary/20 text-primary text-sm font-semibold px-3 py-1 rounded-full">Architecture</span>
+                            <span class="bg-primary/20 text-primary text-sm font-semibold px-3 py-1 rounded-full">Plone CMS</span>
+                            <span class="bg-primary/20 text-primary text-sm font-semibold px-3 py-1 rounded-full">Databases</span>
+                            <span class="bg-primary/20 text-primary text-sm font-semibold px-3 py-1 rounded-full">Publishing</span>
+                        </div>
+                    </div>
                     
-                    
-                </div>  
-            </section><!--//skills-section-->
-            
-        </div><!--//main-body-->
+                    <div class="mt-8">
+                        <h2 class="text-xl font-bold text-dark-heading border-b-2 border-primary pb-2 mb-4">Education</h2>
+                         <h3 class="font-semibold text-dark-heading">MSc Computer Science</h3>
+                         <p class="text-sm">Saarland University, 1989-1995</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="lg:col-span-8 xl:col-span-9">
+                <div class="bg-dark-card p-8 rounded-2xl shadow-lg">
+                    <h2 class="text-3xl font-bold text-dark-heading border-b-2 border-primary pb-4">About Me</h2>
+                    <p class="mt-6">With over 25 years of professional experience in software development with a focus on Python, I am a seasoned expert in backend development, software architecture, and enterprise solutions. My work spans across various industries including publishing, energy, and medicine, where I've demonstrated a strong ability to quickly grasp complex domains and translate requirements into sustainable and efficient software. I am passionate about greenfield projects and dedicated to a developer-first approach, ensuring solutions are not only robust but also a pleasure to work with.</p>
+                    <p class="mt-4">My CV: <a href="assets/pdf/CV-Andreas-Jung-DE.pdf" class="text-primary hover:underline">[German]</a> <a href="assets/pdf/CV-Andreas-Jung-EN.pdf" class="text-primary hover:underline">[English]</a></p>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl shadow-lg mt-8">
+                    <h2 class="text-3xl font-bold text-dark-heading border-b-2 border-primary pb-4">Professional Experience</h2>
+                    <div class="mt-6 relative border-l-2 border-primary/30">
+                        <div class="mb-8 ml-6 pl-4 relative">
+                            <div class="absolute -left-5 w-4 h-4 bg-primary rounded-full mt-1.5 border-2 border-dark-bg"></div>
+                            <h3 class="text-xl font-semibold text-dark-heading">Founder & Managing Director</h3>
+                            <p class="text-primary">ZOPYX | 2004 - Present</p>
+                            <p class="mt-2">Leading freelance projects in Python, Zope, Plone, and Electronic Publishing.</p>
+                        </div>
+                        <div class="mb-8 ml-6 pl-4 relative">
+                            <div class="absolute -left-5 w-4 h-4 bg-primary rounded-full mt-1.5 border-2 border-dark-bg"></div>
+                            <h3 class="text-xl font-semibold text-dark-heading">Team Lead</h3>
+                            <p class="text-primary">Enquos.com | 2012 - 2013</p>
+                        </div>
+                        <div class="mb-8 ml-6 pl-4 relative">
+                            <div class="absolute -left-5 w-4 h-4 bg-primary rounded-full mt-1.5 border-2 border-dark-bg"></div>
+                            <h3 class="text-xl font-semibold text-dark-heading">Release Manager</h3>
+                            <p class="text-primary">Zope Community | 2000 - 2010</p>
+                        </div>
+                        <div class="mb-8 ml-6 pl-4 relative">
+                            <div class="absolute -left-5 w-4 h-4 bg-primary rounded-full mt-1.5 border-2 border-dark-bg"></div>
+                            <h3 class="text-xl font-semibold text-dark-heading">Software Developer & Consultant</h3>
+                            <p class="text-primary">Haufe-Lexware | 2002 - 2003</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl shadow-lg mt-8">
+                    <h2 class="text-3xl font-bold text-dark-heading border-b-2 border-primary pb-4">Key Strengths & Roles</h2>
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark-heading mb-2">Working Areas</h3>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Backend Development & Integration</li>
+                                <li>Individual Software Solutions with Python</li>
+                                <li>Database-driven Applications</li>
+                                <li>Electronic Publishing (XML, DOCX, PDF)</li>
+                                <li>Single-Source Multi-Channel Publishing</li>
+                                <li>Microservices & Web Applications</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-dark-heading mb-2">Roles</h3>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Developer</li>
+                                <li>Analyst & Architect</li>
+                                <li>Team Lead</li>
+                                <li>Project Manager</li>
+                                <li>Trainer & Mentor</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl shadow-lg mt-8">
+                    <h2 class="text-3xl font-bold text-dark-heading border-b-2 border-primary pb-4">Community & Engagement</h2>
+                     <ul class="mt-6 list-disc list-inside space-y-2">
+                        <li>Member of the Zope and Plone Foundations</li>
+                        <li>Founder of the German Zope User Group</li>
+                        <li>Co-Organizer for EuroPython 2012 in Berlin</li>
+                        <li>Organizer for Python Meetup Tübingen</li>
+                        <li>10 years as Release Manager for the Zope application server</li>
+                        <li>Regular speaker at various international conferences</li>
+                        <li>Contributor to numerous open-source projects</li>
+                     </ul>
+                </div>
+
+                <div class="bg-dark-card p-8 rounded-2xl shadow-lg mt-8">
+                    <h2 class="text-3xl font-bold text-dark-heading border-b-2 border-primary pb-4">Own Projects</h2>
+                     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <a href="https://www.produce-and-publish.com" target="_blank" class="block p-4 bg-dark-bg hover:bg-primary/20 rounded-lg transition-colors">
+                            <h3 class="font-semibold text-primary">Produce & Publish</h3>
+                            <p class="text-sm">A Single-Source Multi-Channel Publishing solution.</p>
+                        </a>
+                        <a href="https://xml-director.info" target="_blank" class="block p-4 bg-dark-bg hover:bg-primary/20 rounded-lg transition-colors">
+                            <h3 class="font-semibold text-primary">XML-Director</h3>
+                            <p class="text-sm">Platform for XML-based publishing applications.</p>
+                        </a>
+                        <a href="https://print-css.rocks" target="_blank" class="block p-4 bg-dark-bg hover:bg-primary/20 rounded-lg transition-colors">
+                            <h3 class="font-semibold text-primary">print-css.rocks</h3>
+                            <p class="text-sm">A tutorial and showcase for CSS Paged Media.</p>
+                        </a>
+                        <a href="httpshttps://github.com/zopyx/TextIndexNG3" target="_blank" class="block p-4 bg-dark-bg hover:bg-primary/20 rounded-lg transition-colors">
+                            <h3 class="font-semibold text-primary">TextIndexNG3</h3>
+                            <p class="text-sm">Full-text search solution for Zope & Plone.</p>
+                        </a>
+                     </div>
+                </div>
+            </div>
+        </div>
     </div>
- 
-    <footer class="footer">
-        <div class="text-center">
-            <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-            <small class="copyright">(C) 2024, Andreas Jung</small>
-            <br/>
-            <small class="copyright">Designed with <i class="fa-solid fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a> for developers</small>
-        </div><!--//container-->
-    </footer><!--//footer-->
 
-    <!-- Matomo -->
-<!--
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://matomo.zopyx.com/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '3']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
--->
-<!-- End Matomo Code -->
+    <footer class="text-center py-8 mt-8">
+        <p class="text-gray-500">&copy; 2025 Andreas Jung. All rights reserved.</p>
+    </footer>
 
-        
 </body>
-</html> 
-
+</html>
