@@ -23,6 +23,7 @@ Exit code: 0 = all checks pass, 1 = at least one FAIL.
 """
 import json
 import os
+import ssl
 import sys
 from urllib.request import urlopen
 
@@ -36,6 +37,19 @@ CRAWL_SEL = os.environ.get("MOTION_CRAWL_SELECTOR", "section[id]")
 WIDTHS = [int(w) for w in os.environ.get("MOTION_WIDTHS", "390,768,1440").split(",")]
 
 problems = []
+
+
+def probe_status(url):
+    """Preflight HTTP status. macOS python has no CA bundle, so a failed
+    verification retries unverified — this only asks whether the host answers
+    200, while the real check still runs through Chromium, which verifies TLS."""
+    try:
+        with urlopen(url, timeout=15) as response:
+            return response.status
+    except Exception:
+        # urllib wraps the TLS error in URLError, so retry on any failure.
+        with urlopen(url, timeout=15, context=ssl._create_unverified_context()) as response:
+            return response.status
 
 
 def check(label, ok, detail=""):  # detail: anything json-serialisable
@@ -104,6 +118,20 @@ def crawl(page):
         }"""
     )
     page.wait_for_timeout(1800)
+
+
+def settled_scroll_y(page, timeout_ms=6000, step_ms=200):
+    """Poll scrollY until it stops moving (or the timeout expires)."""
+    elapsed = 0
+    previous = None
+    while elapsed < timeout_ms:
+        current = page.evaluate("Math.round(window.scrollY)")
+        if previous is not None and current == previous:
+            return current
+        previous = current
+        page.wait_for_timeout(step_ms)
+        elapsed += step_ms
+    return previous
 
 
 def run_page(browser, base, path):
@@ -204,15 +232,16 @@ def interactions(browser, base, path):
     check("[%s] progress rail advances with the scroll" % path,
           down["rail"] not in ("none", "matrix(1, 0, 0, 1, 0, 0)"), down["rail"])
 
-    # Back-to-top returns to the very top through ScrollToPlugin.
+    # Back-to-top returns to the very top through ScrollToPlugin. The tween is
+    # time-based but its start is not, so wait for the scroll position to settle
+    # instead of sampling after a fixed delay.
     page.evaluate("window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' })")
-    page.wait_for_timeout(900)
+    page.wait_for_timeout(1200)
     visible = page.evaluate(
         "() => getComputedStyle(document.querySelector('.to-top')).visibility"
     )
     page.click(".to-top")
-    page.wait_for_timeout(1600)
-    after = page.evaluate("() => window.scrollY")
+    after = settled_scroll_y(page, timeout_ms=6000)
     check("[%s] back-to-top button scrolls home" % path,
           visible == "visible" and after <= 2, {"visible": visible, "scrollY": after})
     check("[%s] no JS errors during interaction" % path, not errors, errors[:2])
@@ -248,13 +277,12 @@ def main():
     # then looks like missing assets — fail loudly and early instead.
     for path in pages:
         try:
-            with urlopen(base + "/" + path, timeout=10) as response:
-                status = response.status
+            status = probe_status(base + path)
         except Exception as exc:  # report and stop
-            print("FAIL server does not serve %s (%s)" % (base + "/" + path, exc), flush=True)
+            print("FAIL server does not serve %s (%s)" % (base + path, exc), flush=True)
             return 1
         if status != 200:
-            print("FAIL %s answered HTTP %s" % (base + "/" + path, status), flush=True)
+            print("FAIL %s answered HTTP %s" % (base + path, status), flush=True)
             return 1
     print("server OK, pages: %s" % ", ".join(pages), flush=True)
 
