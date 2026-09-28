@@ -232,6 +232,14 @@
       });
 
       if (icon) tl.from(icon, { scale: 0.7, autoAlpha: 0, duration: 0.6 }, 0);
+      if (icon) {
+        tl.fromTo(
+          section,
+          { '--shine': -300 },
+          { '--shine': 340, duration: 0.9, ease: 'power2.inOut' },
+          0.2
+        );
+      }
       if (titleWords.length) {
         tl.from(titleWords, { y: 18, autoAlpha: 0, duration: 0.55, stagger: 0.05 }, 0.08);
       }
