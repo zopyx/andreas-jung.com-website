@@ -15,6 +15,9 @@
              alone still leaves it queued behind the render-blocking stylesheets. -->
         <link rel="preload" as="image" href="assets/images/profile.webp" fetchpriority="high">
         <!-- Google Font -->
+        <!-- The hero tagline (weight 400) is the LCP element, so take fonts.css
+             out of its critical path: fetch the face at parse time. -->
+        <link rel="preload" as="font" type="font/woff2" href="fonts/roboto-v30-latin-regular.woff2" crossorigin>
         <link rel="stylesheet" href="fonts.css">
         <!-- Custom CSS -->
         <link rel="stylesheet" href="assets/css/redesign.css">
