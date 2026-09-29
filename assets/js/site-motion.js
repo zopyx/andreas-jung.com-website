@@ -44,6 +44,15 @@
    * Helpers                                                             *
    * ------------------------------------------------------------------ */
 
+  /* Reveals must never use `autoAlpha` (opacity + visibility): `visibility:
+     hidden` and `display: none` are exactly what takes an element out of the
+     accessibility tree, so a reveal built on autoAlpha hides every section below
+     the fold from screen readers and from the heading outline until the visitor
+     happens to scroll it into view. `opacity: 0` keeps the content in the
+     accessibility tree (and in the tab order) while staying invisible on screen.
+     Only the generated back-to-top button, which must not be focusable while it
+     is out of the viewport, still uses autoAlpha. */
+
   /* Wrap every word of an element in an inline-block unit so it can be
      animated on its own. Elements that clip their text to a background must
      never be split (Chromium breaks the clip), so they are skipped. */
@@ -195,18 +204,18 @@
       },
     });
 
-    if (topbar) tl.from(topbar, { y: -34, autoAlpha: 0, duration: 0.7 }, 0);
-    if (profile) tl.from(profile, { scale: 0.86, autoAlpha: 0, duration: 0.9 }, 0.1);
+    if (topbar) tl.from(topbar, { y: -34, opacity: 0, duration: 0.7 }, 0);
+    if (profile) tl.from(profile, { scale: 0.86, opacity: 0, duration: 0.9 }, 0.1);
     if (nameWords.length) {
-      tl.from(nameWords, { y: 26, autoAlpha: 0, duration: 0.8, stagger: 0.07 }, 0.25);
+      tl.from(nameWords, { y: 26, opacity: 0, duration: 0.8, stagger: 0.07 }, 0.25);
     }
     if (taglineWords.length) {
-      tl.from(taglineWords, { y: 14, autoAlpha: 0, duration: 0.5, stagger: 0.02 }, 0.5);
+      tl.from(taglineWords, { y: 14, opacity: 0, duration: 0.5, stagger: 0.02 }, 0.5);
     }
-    if (sub) tl.from(sub, { y: 12, autoAlpha: 0, duration: 0.6 }, 0.8);
-    if (cta) tl.from(cta, { y: 16, autoAlpha: 0, duration: 0.6 }, 1.0);
+    if (sub) tl.from(sub, { y: 12, opacity: 0, duration: 0.6 }, 0.8);
+    if (cta) tl.from(cta, { y: 16, opacity: 0, duration: 0.6 }, 1.0);
     if (cards.length) {
-      tl.from(cards, { y: 26, autoAlpha: 0, duration: 0.6, stagger: 0.07 }, 1.05);
+      tl.from(cards, { y: 26, opacity: 0, duration: 0.6, stagger: 0.07 }, 1.05);
     }
 
     countUp(sub, 1.4, 1.3);
@@ -231,7 +240,7 @@
         },
       });
 
-      if (icon) tl.from(icon, { scale: 0.7, autoAlpha: 0, duration: 0.6 }, 0);
+      if (icon) tl.from(icon, { scale: 0.7, opacity: 0, duration: 0.6 }, 0);
       if (icon) {
         tl.fromTo(
           section,
@@ -241,7 +250,7 @@
         );
       }
       if (titleWords.length) {
-        tl.from(titleWords, { y: 18, autoAlpha: 0, duration: 0.55, stagger: 0.05 }, 0.08);
+        tl.from(titleWords, { y: 18, opacity: 0, duration: 0.55, stagger: 0.05 }, 0.08);
       }
       tl.to(section, { '--title-bar': 1, duration: 0.8, ease: 'power2.out' }, 0.15);
 
@@ -250,7 +259,7 @@
           items,
           {
             y: 26,
-            autoAlpha: 0,
+            opacity: 0,
             duration: 0.6,
             stagger: 0.07,
             onComplete: function () {
@@ -264,6 +273,11 @@
   }
 
   /* Hide the fixed top bar while scrolling down, bring it back on the way up.
+     `autoAlpha` on purpose — unlike a reveal, this element is genuinely meant to
+     be gone, so `visibility: hidden` is right: it leaves the accessibility tree
+     and the tab order instead of parking an invisible-but-focusable bar on top
+     of the page. (The reveals in this file deliberately do the opposite, see the
+     note next to the helpers.)
      A numeric open-ended `end` keeps the trigger alive at the very bottom of
      the document, where `end: 'max'` would deactivate it. */
   function headerPeek() {
@@ -328,6 +342,8 @@
   }
 
   function backToTop() {
+    /* autoAlpha on purpose: while the button is out of the viewport it must not
+       be reachable by keyboard either, and `visibility` is what achieves that. */
     var button = document.createElement('button');
     button.type = 'button';
     button.className = 'to-top';
@@ -335,7 +351,11 @@
       'aria-label',
       /^de/i.test(document.documentElement.lang || '') ? 'Nach oben' : 'Back to top'
     );
-    button.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+    /* The wrapper needs the icon's viewBox of its own: without it the <svg> has
+       no intrinsic ratio, `height: 1em` leaves the width at 100% and the glyph
+       is drawn across the whole button. fa-arrow-up is 384x512. */
+    button.innerHTML =
+      '<svg class="svg-inline--fa" viewBox="0 0 384 512" aria-hidden="true" focusable="false"><use href="#fa-arrow-up"/></svg>';
     document.body.appendChild(button);
 
     gsap.set(button, { autoAlpha: 0, y: 16, scale: 0.92 });

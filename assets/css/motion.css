@@ -16,6 +16,21 @@ html.motion-ready {
 }
 
 /* ------------------------------------------------------------------ *
+ * Accessibility escape hatch for the motion layer                     *
+ *                                                                     *
+ * Section content is revealed with `opacity` only (see site-motion.js *
+ * — `visibility: hidden` is what strips content out of the            *
+ * accessibility tree). The cost of that choice is that an item can be *
+ * invisible on screen while still reachable: if a keyboard user tabs   *
+ * into an item whose reveal has not run yet, it must not stay          *
+ * invisible under the focus ring.                                     *
+ * ------------------------------------------------------------------ */
+html.motion-ready .section:focus-within .item,
+html.motion-ready .section:focus-within .motion-word {
+  opacity: 1 !important;
+}
+
+/* ------------------------------------------------------------------ *
  * Injected chrome (progress rail, back-to-top)                        *
  * ------------------------------------------------------------------ */
 .scroll-rail {
